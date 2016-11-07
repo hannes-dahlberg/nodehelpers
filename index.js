@@ -1,8 +1,10 @@
-var Arr = require('./helpers/Arr');
-var Obj = require('./helpers/Obj');
-var ProgressBar = require('./helpers/ProgressBar');
-var Prom = require('./helpers/Prom');
-var Str = require('./helpers/Str');
+var appRoot = require('app-root-path');
+
+var Arr = require(appRoot + './helpers/Arr');
+var Obj = require(appRoot + './helpers/Obj');
+var ProgressBar = require(appRoot + './helpers/ProgressBar');
+var Prom = require(appRoot + './helpers/Prom');
+var Str = require(appRoot + './helpers/Str');
 
 module.exports = {
     arr: Arr,
