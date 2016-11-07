@@ -1,7 +1,6 @@
-var appRoot = require('app-root-path');
-var Obj = require(appRoot + '/helpers/Obj');
+var Obj = require('./Obj');
 
-var Arr = {
+module.exports = {
     isArray: function(object) {
         return Object.prototype.toString.call(object) == '[object Array]';
     },
@@ -79,6 +78,4 @@ var Arr = {
 
         return true;
     }
-}
-
-module.exports = Arr;
+};

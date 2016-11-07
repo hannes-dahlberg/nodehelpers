@@ -1,4 +1,4 @@
-var Obj = {
+module.exports = {
     clone: function(obj) {
         if (null == obj || "object" != typeof obj) return obj;
         var copy = obj.constructor();
@@ -70,5 +70,3 @@ var Obj = {
         return true;
     }
 };
-
-module.exports = Obj;
