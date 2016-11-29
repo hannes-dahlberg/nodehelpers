@@ -20,8 +20,9 @@ module.exports = {
         return obj;
     },
     getType: function(object) {
-        var funcNameRegex = /function (.{1,})\(/;
         if(typeof object == 'undefined') { return undefined; }
+
+        var funcNameRegex = /function (.{1,})\(/;
         if(object == null) { return null };
         var results = (funcNameRegex).exec((object).constructor.toString());
         return (results && results.length > 1) ? results[1] : "";

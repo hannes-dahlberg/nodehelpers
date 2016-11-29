@@ -33,7 +33,7 @@ module.exports = {
 
         return returnArray;
     },
-    groupBy: (array, keys) => {
+    groupBy: function groupBy(array, keys) {
         if(['String', 'Object'].indexOf(Obj.getType(keys)) != -1) { keys = [keys]; }
 
         var currentKey = keys[0];
@@ -63,13 +63,13 @@ module.exports = {
 
         if(keys.length > 1) {
             Object.keys(groups).forEach((index) => {
-                groups[index] = Arr.groupBy(groups[index], keys.slice(1, keys.length));
+                groups[index] = groupBy(groups[index], keys.slice(1, keys.length));
             });
         }
 
         return groups;
     },
-    compare: (array1, array2, exclude) => {
+    compare: function(array1, array2, exclude) {
         for(var a = 0; a < array1.length; a++) {
             if(!Obj.compare(array1[a], array2[a], exclude)) {
                 return false;
