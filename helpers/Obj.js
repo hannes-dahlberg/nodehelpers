@@ -8,16 +8,59 @@ module.exports = {
         return copy;
     },
     /**
-     * Got from: http://stackoverflow.com/a/8052100
-     *
-     * @param obj
-     * @param desc
-     * @returns {*}
+     * OShortcut for getObjPath
      */
     dotNotation: function(obj, desc) {
-        var arr = desc.split('.');
-        while(arr.length && (obj = obj[arr.shift()]));
+        return this.getObjPath(obj, desc, '.');
+    },
+    /**
+     * Shortcut for setObjPath
+     */
+    setDotNotation: function(obj, desc, value) {
+        return this.setObjPath(obj, desc, value, '.')
+    },
+    /**
+     * Highly useful functions copied from:
+     * http://likerrr.ru/on-air/adding-string-with-dot-notation-as-a-key-to-javascript-objects
+     *
+     * Sets the value of an object using string dot notation. Object provided will be updated
+     * so no need to use the return value
+     *
+     * @param {Object} obj The object to operate on
+     * @param {String} path notation path as string
+     * @param {*} value to set
+     * @param {String} notation Notation separator (default ".")
+     * @returns {*} return the modified object
+     */
+    setObjPath(obj, path, value, notation) {
+        function isObject(obj) { return (Object.prototype.toString.call(obj) === '[object Object]' && !!obj);}
+        notation = notation || '.';
+        path.split(notation).reduce(function (prev, cur, idx, arr) {
+            var isLast = (idx === arr.length - 1);
+            // if <cur> is last part of path
+            if (isLast) return (prev[cur] = value);
+            // if <cur> is not last part of path, then returns object if existing value is object or empty object
+            return (isObject(prev[cur])) ? prev[cur] : (prev[cur] = {});
+        }, obj);
+
         return obj;
+    },
+    /**
+     * Highly useful functions copied from:
+     * http://likerrr.ru/on-air/adding-string-with-dot-notation-as-a-key-to-javascript-objects
+     * 
+     * Get value from and object using a string as dot notation reference
+     * 
+     * @param {Object} obj The object to search
+     * @param {String} path notation path as string
+     * @param {String} notation notation Notation separator (default ".")
+     * @returns {*} return the value or undefined if not found
+     */
+    getObjPath(obj, path, notation) {
+        notation = notation || '.';
+        return path.split(notation).reduce(function(prev, cur) {
+            return (prev !== undefined) ? prev[cur] : undefined;
+        }, obj);
     },
     getType: function(object) {
         if(typeof object == 'undefined') { return undefined; }
@@ -34,14 +77,6 @@ module.exports = {
         });
         Object.keys(object2).forEach((name) => {
             returnObject[name] = object2[name];
-        });
-
-        return returnObject;
-    },
-    filter: function(object, filter) {
-        var returnObject = {};
-        Object.keys(object).filter((value, index, array) => filter(object[value], value, object)).forEach((key) => {
-            returnObject[key] = object[key];
         });
 
         return returnObject;
