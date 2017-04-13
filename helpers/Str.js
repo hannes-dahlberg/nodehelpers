@@ -1,4 +1,5 @@
 module.exports = {
+    //Search replace in string
     replace: function(search, replace, subject) {
         var map = {};
         for(var a = 0; a < search.length; a++) {
@@ -8,6 +9,7 @@ module.exports = {
             return map[matched.toLowerCase()];
         });
     },
+    //Substr that works like the substr for PHP (negative values allowed)
     substr: function(string, start, stop) {
         string = String(string);
         if(start < 0) {
@@ -19,6 +21,7 @@ module.exports = {
 
         return string.substr(start, stop);
     },
+    //Uppercase the first letter in string
     ucFirst: function(string) {
         return string.charAt(0).toUpperCase() + string.slice(1);
     }

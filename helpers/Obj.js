@@ -1,4 +1,4 @@
-module.exports = {
+var Obj = {
     clone: function(obj) {
         if (null == obj || "object" != typeof obj) return obj;
         var copy = obj.constructor();
@@ -48,9 +48,9 @@ module.exports = {
     /**
      * Highly useful functions copied from:
      * http://likerrr.ru/on-air/adding-string-with-dot-notation-as-a-key-to-javascript-objects
-     * 
+     *
      * Get value from and object using a string as dot notation reference
-     * 
+     *
      * @param {Object} obj The object to search
      * @param {String} path notation path as string
      * @param {String} notation notation Notation separator (default ".")
@@ -106,3 +106,5 @@ module.exports = {
         return true;
     }
 };
+
+module.exports = Obj

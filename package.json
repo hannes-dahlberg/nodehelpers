@@ -1,7 +1,7 @@
 {
   "name": "nodehelpers",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.1.0",
+  "description": "Helper classes for JS arrays, objects and strings as well as a progressbar and sequence promise helper",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,14 +10,13 @@
     "type": "git",
     "url": "git+https://hannes-dahlberg@github.com/hannes-dahlberg/nodehelpers.git"
   },
-  "author": "",
+  "author": "Hannes Dahlberg",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/hannes-dahlberg/nodehelpers/issues"
   },
   "homepage": "https://github.com/hannes-dahlberg/nodehelpers#readme",
   "dependencies": {
-    "app-root-path": "^2.0.1",
     "bluebird": "^3.4.6",
     "lodash": "^4.16.6",
     "node-progress-3": "^0.3.8"

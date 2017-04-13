@@ -1,9 +1,11 @@
 var Obj = require('./Obj');
 
 module.exports = {
+    //Return true if object is array
     isArray: function(object) {
         return Object.prototype.toString.call(object) == '[object Array]';
     },
+    //Flatten array to a specific level
     flatten: function(array, level) {
         if(typeof level == 'undefined') { level = 0; }
 
@@ -33,6 +35,7 @@ module.exports = {
 
         return returnArray;
     },
+    //Group an array on a specific key value and return an object
     groupBy: function groupBy(array, keys) {
         if(['String', 'Object'].indexOf(Obj.getType(keys)) != -1) { keys = [keys]; }
 
@@ -69,6 +72,7 @@ module.exports = {
 
         return groups;
     },
+    //Compare two arrays with each other using the compare function in the Obj helper
     compare: function(array1, array2, exclude) {
         for(var a = 0; a < array1.length; a++) {
             if(!Obj.compare(array1[a], array2[a], exclude)) {

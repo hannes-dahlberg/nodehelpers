@@ -1,6 +1,7 @@
 var Promise = require('bluebird');
 var _ = require('lodash');
 
+//Given to me by Kristoffer Östlund (https://github.com/kristofferostlund)
 module.exports = {
     /**
      * Recursively calls all *promises* in sequence
